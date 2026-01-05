@@ -21,5 +21,13 @@ pipeline {
         }
       }
     }
+    
+    stage('SonarQube Scan') {
+      steps {
+        withSonarQubeEnv('sonarqube') {
+          sh 'sonar-scanner'
+        }
+      }
+    }
   }
 }
